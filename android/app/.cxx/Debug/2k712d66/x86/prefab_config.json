@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "prefabPath": "/Users/inbeomjin/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.1.0/aa32fec809c44fa531f01dcfb739b5b3304d3050/cli-2.1.0-all.jar",
+  "packages": [
+    "/Users/inbeomjin/Desktop/nyang/node_modules/react-native-vision-camera/android/build/intermediates/prefab_package/debug/prefab",
+    "/Users/inbeomjin/.gradle/caches/8.13/transforms/c0382725fcbd5fa412417340df6418de/transformed/react-android-0.79.2-debug/prefab",
+    "/Users/inbeomjin/Desktop/nyang/node_modules/react-native-reanimated/android/build/intermediates/prefab_package/debug/prefab",
+    "/Users/inbeomjin/Desktop/nyang/node_modules/react-native-worklets-core/android/build/intermediates/prefab_package/debug/prefab",
+    "/Users/inbeomjin/.gradle/caches/8.13/transforms/0f6949dc0759ac1fdbb05ba39e0a76d4/transformed/hermes-android-0.79.2-debug/prefab",
+    "/Users/inbeomjin/.gradle/caches/8.13/transforms/5a257532c46e84f5c417ff7d9e003aba/transformed/fbjni-0.7.0/prefab"
+  ]
+}

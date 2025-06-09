@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105945191516",
+    "project_id": "frontend-deepnyangning-f49b3",
+    "storage_bucket": "frontend-deepnyangning-f49b3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105945191516:android:205acc4dea4fe001854299",
+        "android_client_info": {
+          "package_name": "com.www.deepnyangning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo20CjEugDuJ4wK1QHnG3naJtzIZFUs-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
