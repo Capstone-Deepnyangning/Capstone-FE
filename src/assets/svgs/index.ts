@@ -39,6 +39,8 @@ import ErrorBlue from './error-blue.svg';
 import ErrorGray from './error-gray.svg';
 import CheckEmpty from './check-empty.svg';
 import CheckBlue from './check-blue.svg';
+import EntryLogBlue from './entry-log-blue.svg';
+import EntryLogGray from './entry-log-gray.svg';
 
 export {
   Back,
@@ -82,4 +84,6 @@ export {
   ErrorGray,
   CheckEmpty,
   CheckBlue,
+  EntryLogBlue,
+  EntryLogGray,
 };

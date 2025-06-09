@@ -23,13 +23,13 @@ const LoginScreen = () => {
   const onPressLogin = async () => {
     try {
       const {result, success} = await login({identifier, password});
-      console.log('result', result);
+
       if (success) {
         storage.set('accessToken', result.accessToken);
         storage.set('refreshToken', result.refreshToken);
         setAuthToken(result.accessToken);
         const {result: user} = await getUser();
-        console.log(user);
+
         loginUser({
           accessToken: result.accessToken,
           refreshToken: result.refreshToken,
@@ -41,6 +41,7 @@ const LoginScreen = () => {
         });
       }
     } catch (error: any) {
+      console.log('error', error);
       openModal({
         title: '로그인 실패',
         message: error.response.data.message,

@@ -4,6 +4,7 @@ import {setAuthToken} from '@/services/axios';
 import {getUser} from '@/services/user';
 import {useUserStore} from '@/store/useUserStore';
 import {useNavigation} from '@react-navigation/native';
+import {reissueToken} from '@/services/auth';
 
 const useAutoLogin = () => {
   const {login: loginUser} = useUserStore();
@@ -11,7 +12,6 @@ const useAutoLogin = () => {
 
   const accessToken = storage.getString('accessToken');
   const refreshToken = storage.getString('refreshToken');
-  const isAdmin = storage.getBoolean('isAdmin');
 
   useEffect(() => {
     if (accessToken && refreshToken) {
@@ -30,16 +30,33 @@ const useAutoLogin = () => {
             ...user,
           });
 
-          console.log('af', user);
           navigation.reset({
             index: 0,
-            routes: [{name: isAdmin ? ('Admin' as never) : user.faceRecognition ? ('Camera' as never) : ('Main' as never)}],
+            routes: [{name: user.faceRecognition ? ('Camera' as never) : ('Main' as never)}],
           });
         } catch (error) {
-          navigation.reset({
-            index: 0,
-            routes: [{name: 'Login' as never}],
-          });
+          try {
+            if (refreshToken) {
+              const {accessToken: newAccessToken} = await reissueToken(refreshToken);
+              setAuthToken(newAccessToken);
+              const [userData] = await Promise.all([getUser(), new Promise<void>((resolve) => setTimeout(resolve, 800))]);
+              const {result: user} = userData;
+              loginUser({
+                accessToken: newAccessToken,
+                refreshToken: refreshToken,
+                ...user,
+              });
+              navigation.reset({
+                index: 0,
+                routes: [{name: user.faceRecognition ? ('Camera' as never) : ('Main' as never)}],
+              });
+            }
+          } catch (error) {
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Login' as never}],
+            });
+          }
         }
       })();
     } else {

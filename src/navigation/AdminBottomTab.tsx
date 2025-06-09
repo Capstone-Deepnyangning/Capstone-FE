@@ -2,7 +2,22 @@ import {StyleSheet, Text, View, Pressable, Platform} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import MyPageScreen from '@/screens/MyPageScreen';
-import {HomeBlue, HomeGray, ReportBlue, ReportGray, StudyRoomBlue, StudyRoomGray, MypageBlue, MypageGray, LogoutCircle, Refresh} from '@/assets/svgs';
+import {
+  HomeBlue,
+  HomeGray,
+  ReportBlue,
+  ReportGray,
+  StudyRoomBlue,
+  StudyRoomGray,
+  MypageBlue,
+  MypageGray,
+  LogoutCircle,
+  Refresh,
+  EntryLogBlue,
+  EntryLogGray,
+  ErrorBlue,
+  ErrorGray,
+} from '@/assets/svgs';
 import EntryLogScreen from '@/screens/admin/EntryLogScreen';
 import FailLogScreen from '@/screens/admin/FailLogScreen';
 import ReportedErrorScreen from '@/screens/admin/ReportedErrorScreen';
@@ -34,11 +49,11 @@ const CustomTabBar: React.FC<{state: any; descriptors: any; navigation: any}> = 
 
         let iconName;
         if (route.name === 'EntryLog') {
-          iconName = isFocused ? <HomeBlue /> : <HomeGray />;
+          iconName = isFocused ? <EntryLogBlue /> : <EntryLogGray />;
         } else if (route.name === 'StudyRoomLog') {
           iconName = isFocused ? <StudyRoomBlue /> : <StudyRoomGray />;
         } else if (route.name === 'ReportedError') {
-          iconName = isFocused ? <ReportBlue /> : <ReportGray />;
+          iconName = isFocused ? <ErrorBlue /> : <ErrorGray />;
         } else if (route.name === 'MyPage') {
           iconName = isFocused ? <MypageBlue /> : <MypageGray />;
         }

@@ -12,6 +12,7 @@ export const deleteUser = async () => {
 
 export const resetPassword = async (body: {currentPassword: string; newPassword: string}) => {
   try {
+    console.log(body);
     const {data} = await instance.post('/api/users/password', body);
     return data;
   } catch (error) {

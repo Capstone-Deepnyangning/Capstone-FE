@@ -14,14 +14,15 @@ const ReportTable = ({data, label}: TableProps) => {
   const navigation = useNavigation();
   const flexArr = [3, 1, 1];
   const renderItem = ({item}: {item: any}) => {
-    const {id, userId, read, createdAt} = item;
+    const {id, userId, read, createdAt, identifier} = item;
+    console.log(item);
     return (
       <Pressable style={styles.tableRow} onPress={() => navigation.navigate('ReportedErrorDetail', {id})}>
         <View style={{flex: flexArr[1]}}>
           <Text style={{textAlign: 'center', fontFamily: 'Pretendard-Medium', fontSize: 12}}>{moment(createdAt).format('YYYY-MM-DD HH:mm:ss')}</Text>
         </View>
         <View style={{flex: flexArr[2]}}>
-          <Text style={{textAlign: 'center', fontFamily: 'Pretendard-Medium', fontSize: 12}}>{userId}</Text>
+          <Text style={{textAlign: 'center', fontFamily: 'Pretendard-Medium', fontSize: 12}}>{identifier}</Text>
         </View>
         <View style={{flex: flexArr[3], fontSize: 12}}>{read ? <CheckBlue /> : <CheckEmpty />}</View>
       </Pressable>
